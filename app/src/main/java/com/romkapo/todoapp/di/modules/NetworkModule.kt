@@ -1,9 +1,9 @@
 package com.romkapo.todoapp.di.modules
 
 import android.content.Context
-import com.romkapo.todoapp.data.network.AuthInterceptor
-import com.romkapo.todoapp.data.network.ConnectionManagerObserver
-import com.romkapo.todoapp.data.network.TodoAPI
+import com.romkapo.todoapp.domain.network.AuthInterceptor
+import com.romkapo.todoapp.domain.network.ConnectionManagerObserver
+import com.romkapo.todoapp.domain.network.TodoAPI
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -45,7 +45,8 @@ interface NetworkModule {
             okHttpClient: OkHttpClient,
         ): TodoAPI {
             return Retrofit.Builder()
-                .baseUrl("https://beta.mrdekk.ru/todobackend/")
+//                .baseUrl("https://beta.mrdekk.ru/todobackend/")
+                .baseUrl("http://10.0.2.2:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()
